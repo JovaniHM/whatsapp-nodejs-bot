@@ -29,8 +29,10 @@ app.get('/', function (req, res) {
 }); 
 
 app.post('/sendImg', async function (req, res) {
+    const data = req.body;
+
     const dataFile = {
-        phone: '527717485125',
+        phone: data.phone,
         body: "https://wwtatmayakoba.com/events-img/WhatsApp-Image.jpeg",
         filename: `Imagen.jpeg`
     };
