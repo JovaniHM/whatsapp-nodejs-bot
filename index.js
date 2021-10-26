@@ -27,9 +27,9 @@ app.post('/webhook', async function (req, res) {
         switch (body) {
             case 'hola':
             case 'Hola':
-                const text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+                const textMain = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
 
-                await apiChatApi('message', {chatId: chatId, body: text});
+                await apiChatApi('message', {chatId: chatId, body: textMain});
                 break;
             case '1':
                 const dataFile = {
@@ -41,14 +41,14 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('sendFile', dataFile);
                 break;
             case '2':
-                const text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+                const textQuestions = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
 
-                await apiChatApi('message', {chatId: chatId, body: text});
+                await apiChatApi('message', {chatId: chatId, body: textQuestions});
                 break;
             case '3':
-                const text = `1. Hospedaje\n2. Transportación\n3. Otros `;
+                const textAtention = `1. Hospedaje\n2. Transportación\n3. Otros `;
 
-                await apiChatApi('message', {chatId: chatId, body: text});
+                await apiChatApi('message', {chatId: chatId, body: textAtention});
                 break;
             default:
                 break;
