@@ -138,7 +138,7 @@ app.post('/webhook', async function (req, res) {
                 text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                setTimeout(() => {
+                setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
                     await apiChatApi('message', {phone: '527717485125', body: text});
                 }, 1000);
@@ -150,7 +150,7 @@ app.post('/webhook', async function (req, res) {
                 text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                setTimeout(() => {
+                setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
                     await apiChatApi('message', {phone: '527717485125', body: text});
                 }, 1000);
@@ -162,7 +162,7 @@ app.post('/webhook', async function (req, res) {
                 text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                setTimeout(() => {
+                setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
                     await apiChatApi('message', {phone: '527717485125', body: text});
                 }, 1000);
