@@ -35,17 +35,29 @@ app.get('/', function (req, res) {
 
 app.post('/webhook', async function (req, res) {
     const data = req.body;
-    console.log( data );
     for (var i in data.messages) {
+        if(data.messages[i].fromMe)return;
+
         const author = data.messages[i].author;
         const body = data.messages[i].body;
         const chatId = data.messages[i].chatId;
         const senderName = data.messages[i].senderName;
-        if(data.messages[i].fromMe)return;
+        const chatName = data.messages[i].chatName.split(' ');
+
+        chatName.shift();
+        chatName.shift();
 
         switch (body) {
             case 'hola':
             case 'Hola':
+            case 'hello':
+            case 'Hello':
+            case 'hi':
+            case 'Hi':
+                const text = `Hola! U+1F44B Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! U+1F44B to start please select your preferred langague.\n\n`;
+
+                await apiChatApi('message', {chatId: chatId, body: textMain});
+            case 'Español':
                 const textMain = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
 
                 await apiChatApi('message', {chatId: chatId, body: textMain});
