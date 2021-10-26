@@ -1,6 +1,6 @@
 const config = require("./config.js");
 const token = config.token, apiUrl = config.apiUrl;
-const app = require('express');
+const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const port = process.env.PORT || 3000;
