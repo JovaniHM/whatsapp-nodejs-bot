@@ -1,8 +1,10 @@
 const config = require("./config.js");
 const token = config.token, apiUrl = config.apiUrl;
-const app = require('express')();
+const app = require('express');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+const port = process.env.PORT || 3000;
+
 app.use(bodyParser.json());
 
 process.on('unhandledRejection', err => {
@@ -60,9 +62,10 @@ app.post('/webhook', async function (req, res) {
     res.send('Ok');
 });
 
-app.listen(80, function () {
-    console.log('Listening on port 80..');
-});
+app.listen(port, () => {
+    console.log(`>>> The server is ready in port: (${port})`);
+    console.log(`>>> Press CTRL + c to finish the server`);
+})
 
 async function apiChatApi(method, params){
     const options = {};
