@@ -97,10 +97,10 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '6':
-                text = `6. ¿Dónde me hospedaré?\n\nPrevio a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada`;
+                text = `6. ¿Dónde me hospedaré?\n\nPrevio a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
+                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?.\n\nEn caso de no tener alguna, escriba la palabra No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '7':
@@ -111,7 +111,7 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '8':
-                text = `8. Tuve cambios en mis vuelos, ¿a quién notifico?\n\nTe pedimos por favor ingresar en la plataforma de registro y editar tu información. WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=es )`;
+                text = `8. Tuve cambios en mis vuelos, ¿a quién notifico?\n\nTe pedimos por favor ingresar en la plataforma de registro y editar tu información: WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=es )`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 
                 text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
@@ -134,14 +134,20 @@ app.post('/webhook', async function (req, res) {
             case '11':
                 text = `El invitado ${ chatId }`;
 
-                await apiChatApi('message', {chatId: chatId, body: text});
+                await apiChatApi('message', {phone: '527717485125', body: text});
                 break;
             case '12':
                 text = `El invitado ${ chatId }`;
 
-                await apiChatApi('message', {chatId: chatId, body: text});
+                await apiChatApi('message', {phone: '527717485125', body: text});
                 break;
             case '13':
+                text = `El invitado ${ chatId }`;
+
+                await apiChatApi('message', {phone: '527717485125', body: text});
+                break;
+            case 'no':
+            case 'No':
                 text = `El invitado ${ chatId }`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
