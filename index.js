@@ -79,7 +79,7 @@ app.post('/webhook', async function (req, res) {
 
         let text = '';
 
-        query.on('result', function(row, index) {
+        query.on('result', async function(row, index) {
             if ( row.BAN == 1 ) {
                 if ( row.REGISTROS_INGLES == 0 ) {
                     text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
