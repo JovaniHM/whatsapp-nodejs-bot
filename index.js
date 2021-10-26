@@ -4,6 +4,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const fs = require('fs');
+const { response } = require("express");
 const port = process.env.PORT || 3000;
 
 // const jsonContent = fs.readFileSync('./guests.json', 'utf-8');
@@ -26,6 +27,18 @@ process.on('unhandledRejection', err => {
 app.get('/', function (req, res) {
     res.send("It's working.");
 }); 
+
+app.post('/sendImg', async function (req, res) {
+    const dataFile = {
+        phone: '527717485125',
+        body: "https://wwtatmayakoba.com/events-img/WhatsApp-Image.jpeg",
+        filename: `Imagen.jpeg`
+    };
+
+    await apiChatApi('sendFile', dataFile);
+
+    res.send( 'Ok' );
+});
 
 app.post('/webhook', async function (req, res) {
     const data = req.body;
