@@ -27,16 +27,18 @@ app.post('/webhook', async function (req, res) {
         switch (body) {
             case 'hola':
             case 'Hola':
-                const text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.
-
-                    En nuestro MENÚ podrá consultar lo siguiente:
-
-                    1. Agenda
-                    2. Preguntas frecuentes
-                    3. Atención personalizada
-                `;
+                const text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '1':
+                const dataFile = {
+                    phone: author,
+                    body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
+                    filename: `Agenda.pdf`
+                };
+
+                await apiChatApi('sendFile', dataFile);
                 break;
             default:
                 break;
