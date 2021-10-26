@@ -40,17 +40,17 @@ app.post('/webhook', async function (req, res) {
         const senderName = data.messages[i].senderName;
         const chatName = data.messages[i].chatName.split(' ');
 
-        const jsonContent = fs.readFileSync('./guests.json', 'utf-8');
-        const guests = JSON.parse( jsonContent );
+        // const jsonContent = fs.readFileSync('./guests.json', 'utf-8');
+        // const guests = JSON.parse( jsonContent );
 
-        let index = guests.findIndex(g => g.author == author);
+        // let index = guests.findIndex(g => g.author == author);
 
-        if (index == -1) {
-            index = guests.push({
-                author,
-                langague: null
-            });
-        }
+        // if (index == -1) {
+        //     index = guests.push({
+        //         author,
+        //         langague: null
+        //     });
+        // }
 
         let text = '';
 
@@ -66,13 +66,13 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '1':
-                guests[ index ].langague = 1;
+                // guests[ index ].langague = 1;
                 text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '2':
-                guests[ index ].langague = 2;
+                // guests[ index ].langague = 2;
                 text = `Hello! I am WWT Championship at Mayakoba Concierge and I will be assisting you throughout the event.`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
@@ -138,86 +138,84 @@ app.post('/webhook', async function (req, res) {
                 break;
         }
 
-        return;
+        // if ( guests[ index ].langague == null ) {
+        //     switch (body) {
+        //         case 'hola':
+        //         case 'Hola':
+        //         case 'hello':
+        //         case 'Hello':
+        //         case 'hi':
+        //         case 'Hi':
+        //             text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
+    
+        //             await apiChatApi('message', {chatId: chatId, body: text});
+        //             break;
+        //         case '1':
+        //             guests[ index ].langague = 1;
+        //             text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+    
+        //             await apiChatApi('message', {chatId: chatId, body: text});
+        //             break;
+        //         case '2':
+        //             guests[ index ].langague = 2;
+        //             text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+    
+        //             await apiChatApi('message', {chatId: chatId, body: text});
+        //             break;
+        //     }
+        // } else {
+        //     if (guests[ index ].langague = 1) {
+        //         switch (body) {
+        //             case '1':
+        //                 const dataFile = {
+        //                     phone: author,
+        //                     body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
+        //                     filename: `Agenda.pdf`
+        //                 };
+        
+        //                 await apiChatApi('sendFile', dataFile);
+        //                 break;
+        //             case '2':
+        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+        
+        //                 await apiChatApi('message', {chatId: chatId, body: text});
+        //                 break;
+        //             case '3':
+        //                 text = `1. Hospedaje\n2. Transportación\n3. Otros`;
+        
+        //                 await apiChatApi('message', {chatId: chatId, body: text});
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     } else {
+        //         switch (body) {
+        //             case '1':
+        //                 const dataFile = {
+        //                     phone: author,
+        //                     body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
+        //                     filename: `Agenda.pdf`
+        //                 };
+        
+        //                 await apiChatApi('sendFile', dataFile);
+        //                 break;
+        //             case '2':
+        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+        
+        //                 await apiChatApi('message', {chatId: chatId, body: text});
+        //                 break;
+        //             case '3':
+        //                 text = `1. Hospedaje\n2. Transportación\n3. Otros`;
+        
+        //                 await apiChatApi('message', {chatId: chatId, body: text});
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //     }
+        // }
 
-        if ( guests[ index ].langague == null ) {
-            switch (body) {
-                case 'hola':
-                case 'Hola':
-                case 'hello':
-                case 'Hello':
-                case 'hi':
-                case 'Hi':
-                    text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
-    
-                    await apiChatApi('message', {chatId: chatId, body: text});
-                    break;
-                case '1':
-                    guests[ index ].langague = 1;
-                    text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
-    
-                    await apiChatApi('message', {chatId: chatId, body: text});
-                    break;
-                case '2':
-                    guests[ index ].langague = 2;
-                    text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
-    
-                    await apiChatApi('message', {chatId: chatId, body: text});
-                    break;
-            }
-        } else {
-            if (guests[ index ].langague = 1) {
-                switch (body) {
-                    case '1':
-                        const dataFile = {
-                            phone: author,
-                            body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
-                            filename: `Agenda.pdf`
-                        };
-        
-                        await apiChatApi('sendFile', dataFile);
-                        break;
-                    case '2':
-                        text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
-        
-                        await apiChatApi('message', {chatId: chatId, body: text});
-                        break;
-                    case '3':
-                        text = `1. Hospedaje\n2. Transportación\n3. Otros`;
-        
-                        await apiChatApi('message', {chatId: chatId, body: text});
-                        break;
-                    default:
-                        break;
-                }
-            } else {
-                switch (body) {
-                    case '1':
-                        const dataFile = {
-                            phone: author,
-                            body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
-                            filename: `Agenda.pdf`
-                        };
-        
-                        await apiChatApi('sendFile', dataFile);
-                        break;
-                    case '2':
-                        text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
-        
-                        await apiChatApi('message', {chatId: chatId, body: text});
-                        break;
-                    case '3':
-                        text = `1. Hospedaje\n2. Transportación\n3. Otros`;
-        
-                        await apiChatApi('message', {chatId: chatId, body: text});
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
-        fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
+        // fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
 
         
         // if(/help/.test(body)){
