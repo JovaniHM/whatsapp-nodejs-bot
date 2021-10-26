@@ -29,9 +29,10 @@ app.get('/', function (req, res) {
 
 app.post('/webhook', async function (req, res) {
     const data = req.body;
-    console.log( data );
     for (var i in data.messages) {
         if(data.messages[i].fromMe)return;
+
+        console.log( data );
 
         const author = data.messages[i].author;
         const body = data.messages[i].body;
@@ -60,7 +61,7 @@ app.post('/webhook', async function (req, res) {
             case 'Hello':
             case 'hi':
             case 'Hi':
-                text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
+                text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n1. Español\n2.English`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
