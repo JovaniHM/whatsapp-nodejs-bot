@@ -42,7 +42,7 @@ app.post('/sendImg', async function (req, res) {
     setTimeout(async() => {
         text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
         await apiChatApi('message', {phone: data.phone, body: text});
-    }, 2000);
+    }, 4000);
 
     res.send( 'Ok' );
 });
