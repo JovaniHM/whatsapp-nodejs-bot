@@ -40,6 +40,16 @@ app.post('/webhook', async function (req, res) {
 
                 await apiChatApi('sendFile', dataFile);
                 break;
+            case '2':
+                const text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '3':
+                const text = `1. Hospedaje\n2. Transportación\n3. Otros `;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
             default:
                 break;
         }
