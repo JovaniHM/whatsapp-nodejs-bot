@@ -23,41 +23,57 @@ app.post('/webhook', async function (req, res) {
         const chatId = data.messages[i].chatId;
         const senderName = data.messages[i].senderName;
         if(data.messages[i].fromMe)return;
-        
-        if(/help/.test(body)){
-            const text = `${senderName}, this is a demo bot for https://chat-api.com/.
-            Commands:
-            1. chatId - view the current chat ID
-            2. file [pdf/jpg/doc/mp3] - get a file
-            3. ptt - get a voice message
-            4. geo - get a location
-            5. group - create a group with you and the bot`;
-            await apiChatApi('message', {chatId: chatId, body: text});
-        }else if(/chatId/.test(body)){
-            await apiChatApi('message', {chatId: chatId, body: chatId});
-        }else if(/file (pdf|jpg|doc|mp3)/.test(body)){
-            const fileType = body.match(/file (pdf|jpg|doc|mp3)/)[1];
-            const files = {
-                doc: "http://domain.com/tra.docx",
-                jpg: "http://domain.com/tra.jpg",
-                mp3: "http://domain.com/tra.mp3",
-                pdf: "http://domain.com/tra.pdf"
-            };
-            var dataFile = {
-                phone: author,
-                body: files[fileType],
-                filename: `File *.${fileType}`
-            };
-            if(fileType == "jpg")dataFile['caption'] = "Text under the photo.";
-            await apiChatApi('sendFile', dataFile);
-        }else if(/ptt/.test(body)){            
-            await apiChatApi('sendAudio', {audio: "http://domain.com/tra.ogg", chatId: chatId});
-        }else if(/geo/.test(body)){
-            await apiChatApi('sendLocation', {lat: 51.178843, lng: -1.826210, address: 'Stonehenge', chatId: chatId});
-        }else if(/group/.test(body)){
-            let arrayPhones = [ author.replace("@c.us","") ];
-            await apiChatApi('group', {groupName: 'Bot group', phones: arrayPhones, messageText: 'Welcome to the new group!'});
+
+        switch (body) {
+            case 'hola':
+            case 'Hola':
+                const text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.
+
+                    En nuestro MENÚ podrá consultar lo siguiente:
+
+                    1. Agenda
+                    2. Preguntas frecuentes
+                    3. Atención personalizada
+                    `;
+                break;
+            default:
+                break;
         }
+        
+        // if(/help/.test(body)){
+        //     const text = `${senderName}, this is a demo bot for https://chat-api.com/.
+        //     Commands:
+        //     1. chatId - view the current chat ID
+        //     2. file [pdf/jpg/doc/mp3] - get a file
+        //     3. ptt - get a voice message
+        //     4. geo - get a location
+        //     5. group - create a group with you and the bot`;
+        //     await apiChatApi('message', {chatId: chatId, body: text});
+        // }else if(/chatId/.test(body)){
+        //     await apiChatApi('message', {chatId: chatId, body: chatId});
+        // }else if(/file (pdf|jpg|doc|mp3)/.test(body)){
+        //     const fileType = body.match(/file (pdf|jpg|doc|mp3)/)[1];
+        //     const files = {
+        //         doc: "http://domain.com/tra.docx",
+        //         jpg: "http://domain.com/tra.jpg",
+        //         mp3: "http://domain.com/tra.mp3",
+        //         pdf: "http://domain.com/tra.pdf"
+        //     };
+        //     var dataFile = {
+        //         phone: author,
+        //         body: files[fileType],
+        //         filename: `File *.${fileType}`
+        //     };
+        //     if(fileType == "jpg")dataFile['caption'] = "Text under the photo.";
+        //     await apiChatApi('sendFile', dataFile);
+        // }else if(/ptt/.test(body)){            
+        //     await apiChatApi('sendAudio', {audio: "http://domain.com/tra.ogg", chatId: chatId});
+        // }else if(/geo/.test(body)){
+        //     await apiChatApi('sendLocation', {lat: 51.178843, lng: -1.826210, address: 'Stonehenge', chatId: chatId});
+        // }else if(/group/.test(body)){
+        //     let arrayPhones = [ author.replace("@c.us","") ];
+        //     await apiChatApi('group', {groupName: 'Bot group', phones: arrayPhones, messageText: 'Welcome to the new group!'});
+        // }
     }
     res.send('Ok');
 });
