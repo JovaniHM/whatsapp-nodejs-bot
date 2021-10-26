@@ -4,6 +4,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const fs = require('fs');
+const mysql = require('mysql');
 const { response } = require("express");
 const port = process.env.PORT || 3000;
 
@@ -17,6 +18,13 @@ const port = process.env.PORT || 3000;
 // })
 
 // fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
+
+const connection = mysql.createConnection({
+    host: 'database-pga-rlh.cnicefbcq5cy.us-east-2.rds.amazonaws.com',
+    user: 'adminpga',
+    password: '5BpKGMA(+#4xXg9#',
+    database: 'PGA_RLH_DB',
+});
 
 app.use(bodyParser.json());
 
@@ -59,6 +67,22 @@ app.post('/webhook', async function (req, res) {
         const chatId = data.messages[i].chatId;
         const senderName = data.messages[i].senderName;
         const chatName = data.messages[i].chatName;
+
+        let phone = chatName.split(' ');
+
+        phone.shift();
+        phone.shift();
+
+        phone = phone.join('');
+
+        connection.connect();
+
+        connection.query(`CALL strGetInfoGuestWhatsApp( ${ phone } );`, function (error, results, fields) {
+            if (error) throw error;
+            console.log( results );
+        });
+
+        connection.end();
 
         // const jsonContent = fs.readFileSync('./guests.json', 'utf-8');
         // const guests = JSON.parse( jsonContent );
