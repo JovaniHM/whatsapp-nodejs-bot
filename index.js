@@ -85,6 +85,9 @@ app.post('/webhook', async function (req, res) {
                 };
 
                 await apiChatApi('sendFile', dataFile);
+
+                text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+                await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '4':
                 text = `Preguntas frecuentes\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el Pro-Am y con quién?`;
@@ -140,7 +143,7 @@ app.post('/webhook', async function (req, res) {
 
                 setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
-                    await apiChatApi('message', {phone: '527717485125', body: text});
+                    await apiChatApi('message', {chatId: chatId, body: text});
                 }, 1000);
                 break;
             case '12':
@@ -152,7 +155,7 @@ app.post('/webhook', async function (req, res) {
 
                 setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
-                    await apiChatApi('message', {phone: '527717485125', body: text});
+                    await apiChatApi('message', {chatId: chatId, body: text});
                 }, 1000);
                 break;
             case '13':
@@ -164,7 +167,7 @@ app.post('/webhook', async function (req, res) {
 
                 setTimeout(async() => {
                     text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
-                    await apiChatApi('message', {phone: '527717485125', body: text});
+                    await apiChatApi('message', {chatId: chatId, body: text});
                 }, 1000);
                 break;
             case '14':
