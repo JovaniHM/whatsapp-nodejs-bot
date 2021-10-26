@@ -38,7 +38,7 @@ app.post('/webhook', async function (req, res) {
         const body = data.messages[i].body;
         const chatId = data.messages[i].chatId;
         const senderName = data.messages[i].senderName;
-        const chatName = data.messages[i].chatName.split(' ');
+        const chatName = data.messages[i].chatName;
 
         // const jsonContent = fs.readFileSync('./guests.json', 'utf-8');
         // const guests = JSON.parse( jsonContent );
@@ -132,19 +132,40 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '11':
-                text = `Nombre Invitado necesita atención personalizada de Otros, favor de contactarlo(a) al número ${ chatId }`;
+                text = `XXX-XXX necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número ${ chatName }`;
+                await apiChatApi('message', {phone: '5215578684880', body: text});
 
-                await apiChatApi('message', {phone: '527717485125', body: text});
+                text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+                await apiChatApi('message', {chatId: chatId, body: text});
+
+                setTimeout(() => {
+                    text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+                    await apiChatApi('message', {phone: '527717485125', body: text});
+                }, 1000);
                 break;
             case '12':
-                text = `El invitado ${ chatId }`;
+                text = `XXX-XXX necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
+                // await apiChatApi('message', {phone: '5219983216190', body: text});
 
-                await apiChatApi('message', {phone: '527717485125', body: text});
+                text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+                await apiChatApi('message', {chatId: chatId, body: text});
+
+                setTimeout(() => {
+                    text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+                    await apiChatApi('message', {phone: '527717485125', body: text});
+                }, 1000);
                 break;
             case '13':
-                text = `El invitado ${ chatId }`;
+                text = `XXX-XXX necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
+                await apiChatApi('message', {phone: '5215559693785)', body: text});
 
-                await apiChatApi('message', {phone: '527717485125', body: text});
+                text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+                await apiChatApi('message', {chatId: chatId, body: text});
+
+                setTimeout(() => {
+                    text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+                    await apiChatApi('message', {phone: '527717485125', body: text});
+                }, 1000);
                 break;
             case '14':
                 text = `Preguntas frecuentes\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el Pro-Am y con quién?`;
