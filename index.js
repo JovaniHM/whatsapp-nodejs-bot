@@ -50,6 +50,8 @@ app.post('/webhook', async function (req, res) {
             });
         }
 
+        let text = '';
+
         if ( !guests[ index ].langague ) {
             switch (body) {
                 case 'hola':
@@ -58,21 +60,21 @@ app.post('/webhook', async function (req, res) {
                 case 'Hello':
                 case 'hi':
                 case 'Hi':
-                    const text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
+                    text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
     
                     await apiChatApi('message', {chatId: chatId, body: text});
                     break;
                 case '1':
                     guests[ index ].langague = 1;
-                    const textMain = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+                    text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
     
-                    await apiChatApi('message', {chatId: chatId, body: textMain});
+                    await apiChatApi('message', {chatId: chatId, body: text});
                     break;
                 case '2':
                     guests[ index ].langague = 2;
-                    const textMain = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+                    text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
     
-                    await apiChatApi('message', {chatId: chatId, body: textMain});
+                    await apiChatApi('message', {chatId: chatId, body: text});
                     break;
             }
         } else {
@@ -88,14 +90,14 @@ app.post('/webhook', async function (req, res) {
                         await apiChatApi('sendFile', dataFile);
                         break;
                     case '2':
-                        const textQuestions = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+                        text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
         
-                        await apiChatApi('message', {chatId: chatId, body: textQuestions});
+                        await apiChatApi('message', {chatId: chatId, body: text});
                         break;
                     case '3':
-                        const textAtention = `1. Hospedaje\n2. Transportación\n3. Otros`;
+                        text = `1. Hospedaje\n2. Transportación\n3. Otros`;
         
-                        await apiChatApi('message', {chatId: chatId, body: textAtention});
+                        await apiChatApi('message', {chatId: chatId, body: text});
                         break;
                     default:
                         break;
@@ -112,14 +114,14 @@ app.post('/webhook', async function (req, res) {
                         await apiChatApi('sendFile', dataFile);
                         break;
                     case '2':
-                        const textQuestions = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+                        text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
         
-                        await apiChatApi('message', {chatId: chatId, body: textQuestions});
+                        await apiChatApi('message', {chatId: chatId, body: text});
                         break;
                     case '3':
-                        const textAtention = `1. Hospedaje\n2. Transportación\n3. Otros`;
+                        text = `1. Hospedaje\n2. Transportación\n3. Otros`;
         
-                        await apiChatApi('message', {chatId: chatId, body: textAtention});
+                        await apiChatApi('message', {chatId: chatId, body: text});
                         break;
                     default:
                         break;
