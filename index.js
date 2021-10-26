@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 //     number: Math.floor( Math.random() * 10 )
 // })
 
-fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
+// fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
 
 app.use(bodyParser.json());
 
@@ -128,6 +128,8 @@ app.post('/webhook', async function (req, res) {
                 }
             }
         }
+
+        fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
 
         
         // if(/help/.test(body)){
