@@ -29,6 +29,7 @@ app.get('/', function (req, res) {
 
 app.post('/webhook', async function (req, res) {
     const data = req.body;
+    console.log( data );
     for (var i in data.messages) {
         if(data.messages[i].fromMe)return;
 
@@ -52,7 +53,93 @@ app.post('/webhook', async function (req, res) {
 
         let text = '';
 
-        if ( !guests[ index ].langague ) {
+        switch (body) {
+            case 'hola':
+            case 'Hola':
+            case 'hello':
+            case 'Hello':
+            case 'hi':
+            case 'Hi':
+                text = `Hola! Para comenzar por favor seleccione el idioma de su preferencia.\n\nHello! to start please select your preferred langague.\n\n`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '1':
+                guests[ index ].langague = 1;
+                text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '2':
+                guests[ index ].langague = 2;
+                text = `Hello! I am WWT Championship at Mayakoba Concierge and I will be assisting you throughout the event.`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '3':
+                const dataFile = {
+                    phone: author,
+                    body: "https://wwtatmayakoba.com/agenda/Agenda-WWT-2021-General.pdf",
+                    filename: `Agenda.pdf`
+                };
+
+                await apiChatApi('sendFile', dataFile);
+                break;
+            case '4':
+                text = `6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '5':
+                text = `11. Hospedaje\n12. Transportación\n13. Otros`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '6':
+                text = `Previo a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '7':
+                text = `Si en la plataforma de registro usted lo solicitó e ingresó la información de sus vuelos, la transportación lo estará esperando a su llegada y para su regreso.`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '8':
+                text = `Te pedimos por favor ingresar en la plataforma de registro y editar tu información. WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=es )`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '9':
+                text = `No`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '10':
+                text = `La tarde del martes 2 de noviembre se le compartirán los pairings y horarios de salida.`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '11':
+                text = `El invitado ${ chatId }`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '12':
+                text = `El invitado ${ chatId }`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+            case '13':
+                text = `El invitado ${ chatId }`;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
+                break;
+        }
+
+        return;
+
+        if ( guests[ index ].langague == null ) {
             switch (body) {
                 case 'hola':
                 case 'Hola':
