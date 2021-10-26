@@ -169,6 +169,7 @@ app.post('/webhook', async function (req, res) {
             case '12':
                 text = `XXX-XXX necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
                 // await apiChatApi('message', {phone: '5219983216190', body: text});
+                await apiChatApi('message', {phone: '527717485125', body: text});
 
                 text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
