@@ -1,6 +1,6 @@
 module.exports = {
     // API reference URL
-    apiUrl: "",
+    apiUrl: "https://api.chat-api.com/instance356290",
     // API token from your personal cabinet
-    token: ""
+    token: "rssit5ef5nni2fnr"
 }
