@@ -3,7 +3,25 @@ const token = config.token, apiUrl = config.apiUrl;
 const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+const mysql = require('mysql');
 const port = process.env.PORT || 3000;
+
+const connection = mysql.createConnection({
+    host     : 'database-pga-rlh.cnicefbcq5cy.us-east-2.rds.amazonaws.com',
+    user     : 'adminpga',
+    password : '5BpKGMA(+#4xXg9#',
+    database : 'PGA_RLH_DB'
+});
+
+// connection.connect();
+
+// connection.query('SELECT * FROM INVITADOS;', function (error, results, fields) {
+//     if (error) throw error;
+
+//     console.log( results[0] );
+// });
+
+// connection.end();
 
 app.use(bodyParser.json());
 
@@ -17,6 +35,7 @@ app.get('/', function (req, res) {
 
 app.post('/webhook', async function (req, res) {
     const data = req.body;
+    console.log( data );
     for (var i in data.messages) {
         const author = data.messages[i].author;
         const body = data.messages[i].body;
@@ -46,7 +65,7 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('message', {chatId: chatId, body: textQuestions});
                 break;
             case '3':
-                const textAtention = `1. Hospedaje\n2. Transportación\n3. Otros `;
+                const textAtention = `1. Hospedaje\n2. Transportación\n3. Otros`;
 
                 await apiChatApi('message', {chatId: chatId, body: textAtention});
                 break;
