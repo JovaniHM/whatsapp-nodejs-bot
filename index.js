@@ -39,8 +39,10 @@ app.post('/sendImg', async function (req, res) {
 
     await apiChatApi('sendFile', dataFile);
 
-    text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
-    await apiChatApi('message', {phone: data.phone, body: text});
+    setTimeout(async() => {
+        text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+        await apiChatApi('message', {phone: data.phone, body: text});
+    }, 2000);
 
     res.send( 'Ok' );
 });
