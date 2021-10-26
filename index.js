@@ -34,7 +34,9 @@ app.post('/webhook', async function (req, res) {
                     1. Agenda
                     2. Preguntas frecuentes
                     3. Atención personalizada
-                    `;
+                `;
+
+                await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             default:
                 break;
