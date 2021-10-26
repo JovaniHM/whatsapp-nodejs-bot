@@ -173,12 +173,12 @@ app.post('/webhook', async function (req, res) {
             case '14':
                 text = `Preguntas frecuentes\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el Pro-Am y con quién?`;
 
-                await apiChatApi('message', {phone: '527717485125', body: text});
+                await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '15':
                 text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
 
-                await apiChatApi('message', {phone: '527717485125', body: text});
+                await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             default:
                 text = `Lo sentimos, la opción que ha ingresado no es válida, por favor intente nuevamente.`;
