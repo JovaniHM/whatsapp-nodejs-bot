@@ -87,7 +87,7 @@ app.post('/webhook', async function (req, res) {
                 await apiChatApi('sendFile', dataFile);
                 break;
             case '4':
-                text = `6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?`;
+                text = `Preguntas frecuentes\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el Pro-Am y con quién?`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
@@ -100,39 +100,39 @@ app.post('/webhook', async function (req, res) {
                 text = `6. ¿Dónde me hospedaré?\n\nPrevio a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?.\n\nEn caso de no tener alguna, escriba la palabra No`;
+                text = `¿Tiene usted alguna otra pregunta?\n\n14. Si\n15. No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '7':
                 text = `7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n\nSi en la plataforma de registro usted lo solicitó e ingresó la información de sus vuelos, la transportación lo estará esperando a su llegada y para su regreso.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
+                text = `¿Tiene usted alguna otra pregunta?\n\n14. Si\n15. No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '8':
                 text = `8. Tuve cambios en mis vuelos, ¿a quién notifico?\n\nTe pedimos por favor ingresar en la plataforma de registro y editar tu información: WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=es )`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
+                text = `¿Tiene usted alguna otra pregunta?\n\n14. Si\n15. No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '9':
                 text = `9. ¿Este año se solicitará alguna prueba COVID-19?\n\nNo`;
                 await apiChatApi('message', {chatId: chatId, body: text});
-                
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
+
+                text = `¿Tiene usted alguna otra pregunta?\n\n14. Si\n15. No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '10':
-                text = `10. ¿A qué hora jugaré el ProAm y con quién?\n\nLa tarde del martes 2 de noviembre se le compartirán los pairings y horarios de salida.`;
+                text = `10. ¿A qué hora jugaré el Pro-Am y con quién?\n\nLa tarde del martes 2 de noviembre se le compartirán los pairings y horarios de salida.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
-                text = `Tiene alguna otra duda\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el ProAm y con quién?\n\nEn caso de no tener alguna, escriba la palabra No`;
+                text = `¿Tiene usted alguna otra pregunta?\n\n14. Si\n15. No`;
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
             case '11':
-                text = `El invitado ${ chatId }`;
+                text = `Nombre Invitado necesita atención personalizada de Otros, favor de contactarlo(a) al número ${ chatId }`;
 
                 await apiChatApi('message', {phone: '527717485125', body: text});
                 break;
@@ -146,9 +146,18 @@ app.post('/webhook', async function (req, res) {
 
                 await apiChatApi('message', {phone: '527717485125', body: text});
                 break;
-            case 'no':
-            case 'No':
-                text = `El invitado ${ chatId }`;
+            case '14':
+                text = `Preguntas frecuentes\n\n6. ¿Dónde me hospedaré?\n7. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n8. Tuve cambios en mis vuelos, ¿a quién notifico?\n9. ¿Este año se solicitará alguna prueba COVID-19?\n10. ¿A qué hora jugaré el Pro-Am y con quién?`;
+
+                await apiChatApi('message', {phone: '527717485125', body: text});
+                break;
+            case '15':
+                text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n3. Agenda\n4. Preguntas frecuentes\n5. Atención personalizada`;
+
+                await apiChatApi('message', {phone: '527717485125', body: text});
+                break;
+            default:
+                text = `Lo sentimos, la opción que ha ingresado no es válida, por favor intente nuevamente.`;
 
                 await apiChatApi('message', {chatId: chatId, body: text});
                 break;
@@ -192,7 +201,7 @@ app.post('/webhook', async function (req, res) {
         //                 await apiChatApi('sendFile', dataFile);
         //                 break;
         //             case '2':
-        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el Pro-Am y con quién?`;
         
         //                 await apiChatApi('message', {chatId: chatId, body: text});
         //                 break;
@@ -216,7 +225,7 @@ app.post('/webhook', async function (req, res) {
         //                 await apiChatApi('sendFile', dataFile);
         //                 break;
         //             case '2':
-        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el ProAm y con quién?`;
+        //                 text = `1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?\n5. ¿A qué hora jugaré el Pro-Am y con quién?`;
         
         //                 await apiChatApi('message', {chatId: chatId, body: text});
         //                 break;
