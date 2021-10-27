@@ -92,6 +92,9 @@ app.post('/webhook', async function (req, res) {
 
                     await en_bot(caseValue, guests, index, text, chatId, row, author, chatName)
                 }
+            } else {
+                text = `Lo siento, pero no cuenta con acceso al Concierge de *WWT Championship at Mayakoba* 🧐`;
+                await apiChatApi('message', {chatId: chatId, body: text});
             }
 
             fs.writeFileSync('./guests.json', JSON.stringify( guests ), 'utf-8');
