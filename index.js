@@ -84,9 +84,9 @@ app.post('/webhook', async function (req, res) {
         query.on('result', function(row, index) {
             if ( row.BAN == 1 ) {
                 if ( row.REGISTROS_INGLES == 0 ) {
-                    es_bot(caseValue, guests, index, text, chatId, row);
+                    es_bot(caseValue, guests, index, text, chatId, row, author);
                 } else {
-                    en_bot(caseValue, guests, index, text, chatId, row)
+                    en_bot(caseValue, guests, index, text, chatId, row, author)
                 }
             }
 
@@ -103,7 +103,7 @@ app.listen(port, () => {
     console.log(`>>> Press CTRL + c to finish the server`);
 })
 
-async function es_bot(caseValue, guests, index, text, chatId, row) {
+async function es_bot(caseValue, guests, index, text, chatId, row, author) {
     switch ( caseValue ) {
         case 'es-3-1':
             es_22_(guests, index, text, chatId, row);
@@ -216,7 +216,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row) {
     }
 }
 
-async function en_bot(caseValue, guests, index, text, chatId, row) {
+async function en_bot(caseValue, guests, index, text, chatId, row, author) {
     switch ( caseValue ) {
         case 'en-3-1':
             en_22_(guests, index, text, chatId, row);
