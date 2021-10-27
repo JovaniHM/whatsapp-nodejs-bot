@@ -335,11 +335,11 @@ async function es_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'es-1-';
 
     if ( start ) {
-        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de *WWT Championship at Mayakoba* y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
-            text = `Bienvenido al MENÚ del WWT Championship at Mayakoba donde podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+            text = `Bienvenido al *MENÚ* del *WWT Championship at Mayakoba* donde podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
             await apiChatApi('message', {chatId: chatId, body: text});
         }, 2000);
     }
