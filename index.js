@@ -77,15 +77,17 @@ app.post('/webhook', async function (req, res) {
             });
         }
 
-        const caseValue = ( (body == 'Hola' || body == 'hola') ? '' : guests[ index ].clave ) + body;
-
         const query = connection.query(`CALL strGetInfoGuestWhatsApp( '${ phone }' );`);
 
         query.on('result', async function(row, index) {
             if ( row.BAN == 1 ) {
                 if ( row.REGISTROS_INGLES == 0 ) {
+                    const caseValue = ( (body == 'Hola' || body == 'hola') ? '' : guests[ index ].clave ) + body;
+
                     await es_bot(caseValue, guests, index, text, chatId, row, author, chatName);
                 } else {
+                    const caseValue = ( (body == 'Hello' || body == 'hello' || body == 'Hi' || body == 'hi') ? '' : guests[ index ].clave ) + body;
+
                     await en_bot(caseValue, guests, index, text, chatId, row, author, chatName)
                 }
             }
