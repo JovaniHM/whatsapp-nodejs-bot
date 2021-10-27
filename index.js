@@ -51,8 +51,6 @@ app.post('/webhook', async function (req, res) {
     for (var i in data.messages) {
         if(data.messages[i].fromMe) return;
 
-        console.log( data );
-
         const author = data.messages[i].author;
         const body = data.messages[i].body;
         const chatId = data.messages[i].chatId;
@@ -337,7 +335,7 @@ async function es_1_(guests, index, text, chatId, start = true) {
     guests[ index ].clave = 'es-1-';
 
     if ( start ) {
-        text = `Hola, soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+        text = `Hola, 👋🏻 soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
