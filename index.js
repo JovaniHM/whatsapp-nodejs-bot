@@ -77,7 +77,7 @@ app.post('/webhook', async function (req, res) {
             });
         }
 
-        const caseValue = ( (body == 'Hola' || body == 'hola' || body == 'Hello' || body == 'hello' || body == 'Hi' || body == 'hi') ? '' : guests[ index ].clave ) + body;
+        const caseValue = ( (body == 'Hola' || body == 'hola' || body == 'Hello' || body == 'hello' || body == 'Hi' || body == 'hi') ? body : ( guests[ index ].clave + body ) );
 
         const query = connection.query(`CALL strGetInfoGuestWhatsApp( '${ phone }' );`);
 
