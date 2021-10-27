@@ -200,7 +200,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'es-1-3':
             guests[ index ].clave = 'es-23-';
-            text = `*¿Qué tipo de atención personalizada es la que desea?*\n\n1️⃣ Hospedaje\n2️⃣ Transportación\n3️⃣ Otros`;
+            text = `*¿Qué tipo de atención personalizada desea?*\n\n1️⃣ Hospedaje\n2️⃣ Transportación\n3️⃣ Otros`;
             await apiChatApi('message', {chatId: chatId, body: text});
             break;
 
@@ -313,7 +313,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'en-1-3':
             guests[ index ].clave = 'en-23-';
-            text = `1. Hosting\n2. Transportation\n3. Others`;
+            text = `*What kind of personalized attention do you want?*\n\n1. Hosting\n2. Transportation\n3. Others`;
             await apiChatApi('message', {chatId: chatId, body: text});
             break;
 
