@@ -83,12 +83,12 @@ app.post('/webhook', async function (req, res) {
             if ( row.BAN == 1 ) {
                 if ( row.REGISTROS_INGLES == 0 ) {
                     const caseValue = ( (body == 'Hola' || body == 'hola') ? 'Hola' : ( guests[ index ].clave + body ) );
-                    console.log( caseValue );
+                    console.log( chatId + ': ' + caseValue );
 
                     await es_bot(caseValue, guests, index, text, chatId, row, author, chatName);
                 } else {
                     const caseValue = ( (body == 'Hello' || body == 'hello' || body == 'Hi' || body == 'hi') ? 'Hello' : ( guests[ index ].clave + body ) );
-                    console.log( caseValue );
+                    console.log( chatId + ': ' + caseValue );
 
                     await en_bot(caseValue, guests, index, text, chatId, row, author, chatName)
                 }
