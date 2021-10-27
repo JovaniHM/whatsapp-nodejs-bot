@@ -118,7 +118,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             // await apiChatApi('message', {phone: '5215578684880', body: text});
             await apiChatApi('message', {phone: '5217717485125', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
+            text = `En seguida nos pondremos en contacto con usted. 🏃🏼‍♀️\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
@@ -128,7 +128,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             // await apiChatApi('message', {phone: '5219983216190', body: text});
             await apiChatApi('message', {phone: '5217717485125', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
+            text = `En seguida nos pondremos en contacto con usted. 🏃🏻\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
@@ -138,7 +138,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             // await apiChatApi('message', {phone: '5215559693785)', body: text});
             await apiChatApi('message', {phone: '5217717485125)', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
+            text = `En seguida nos pondremos en contacto con usted. 🏃🏻\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
