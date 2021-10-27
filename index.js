@@ -315,7 +315,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'en-1-3':
             guests[ index ].clave = 'en-23-';
-            text = `*What kind of personalized attention do you want?*\n\n1. Hosting\n2. Transportation\n3. Others`;
+            text = `*What kind of personalized attention do you want?*\n\n1️⃣ Hosting\n2️⃣ Transportation\n3️⃣ Others`;
             await apiChatApi('message', {chatId: chatId, body: text});
             break;
 
