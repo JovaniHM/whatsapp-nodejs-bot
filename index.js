@@ -109,7 +109,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             es_22_(guests, index, text, chatId, row);
             break;
         case 'es-3-2':
-            es_1_(guests, index, text, chatId, false);
+            es_1_(guests, index, text, chatId, row, false);
             break;
 
 
@@ -121,7 +121,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            es_1_(guests, index, text, chatId, false);
+            es_1_(guests, index, text, chatId, row, false);
             break;
         case 'es-23-2':
             text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
@@ -131,7 +131,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            es_1_(guests, index, text, chatId, false);
+            es_1_(guests, index, text, chatId, row, false);
             break;
         case 'es-23-3':
             text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
@@ -141,7 +141,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            es_1_(guests, index, text, chatId, false);
+            es_1_(guests, index, text, chatId, row, false);
             break;
 
 
@@ -193,7 +193,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
             guests[ index ].clave = 'es-1-';
 
-            es_1_(guests, index, text, chatId, false);
+            es_1_(guests, index, text, chatId, row, false);
             break;
         case 'es-1-2':
             es_22_(guests, index, text, chatId, row);
@@ -207,7 +207,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
         case 'Hola':
         case 'hola':
-            es_1_(guests, index, text, chatId)
+            es_1_(guests, index, text, chatId, row)
             break;
         default:
             text = `Lo sentimos, la opción que ha ingresado no es válida, por favor intente nuevamente.`;
@@ -222,7 +222,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             en_22_(guests, index, text, chatId, row);
             break;
         case 'en-3-2':
-            en_1_(guests, index, text, chatId, false);
+            en_1_(guests, index, text, chatId, row, false);
             break;
 
 
@@ -234,7 +234,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `We will contact you as soon as possible. Thank you for your time.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            en_1_(guests, index, text, chatId, false);
+            en_1_(guests, index, text, chatId, row, false);
             break;
         case 'en-23-2':
             text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
@@ -244,7 +244,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `We will contact you as soon as possible. Thank you for your time.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            en_1_(guests, index, text, chatId, false);
+            en_1_(guests, index, text, chatId, row, false);
             break;
         case 'en-23-3':
             text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
@@ -254,7 +254,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             text = `We will contact you as soon as possible. Thank you for your time.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
-            en_1_(guests, index, text, chatId, false);
+            en_1_(guests, index, text, chatId, row, false);
             break;
 
 
@@ -306,7 +306,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
             guests[ index ].clave = 'en-1-';
 
-            en_1_(guests, index, text, chatId, false);
+            en_1_(guests, index, text, chatId, row, false);
             break;
         case 'en-1-2':
             en_22_(guests, index, text, chatId, row);
@@ -322,7 +322,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
         case 'hello':
         case 'hi':
         case 'Hi':
-            en_1_(guests, index, text, chatId)
+            en_1_(guests, index, text, chatId, row)
             break;
         default:
             text = `Sorry, the option entered is invalid, please try again.`;
@@ -331,11 +331,11 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
     }
 }
 
-async function es_1_(guests, index, text, chatId, start = true) {
+async function es_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'es-1-';
 
     if ( start ) {
-        text = `Hola, 👋🏻 soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de WWT Championship at Mayakoba y lo estaré acompañando durante todo el evento.\n\nEn nuestro MENÚ podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
@@ -345,11 +345,11 @@ async function es_1_(guests, index, text, chatId, start = true) {
     }
 }
 
-async function en_1_(guests, index, text, chatId, start = true) {
+async function en_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'en-1-';
 
     if ( start ) {
-        text = `Hello! I am WWT Championship at Mayakoba Concierge and I will be assisting you throughout the event.\n\nIn our Main Menu you can look up the following information:\n\n1. Agenda\n2. Frequently Asked Questions\n3. Personalized attention`;
+        text = `Hello ${ row.NOMBRE_CARTA }! I am WWT Championship at Mayakoba Concierge and I will be assisting you throughout the event.\n\nIn our Main Menu you can look up the following information:\n\n1. Agenda\n2. Frequently Asked Questions\n3. Personalized attention`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
