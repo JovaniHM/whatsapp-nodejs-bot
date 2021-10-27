@@ -273,7 +273,7 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             en_3_(guests, index, text, chatId);
             break;
         case 'en-22-3':
-            text = `*I had changes on my flights, who do I notify?* 🤔\n\n🔸 Please login to the registration platform and edit your information: WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=en )`;
+            text = `*I had changes on my flights, who do I notify?* 🤔\n\n🔸 Please login to the registration platform and edit your information: WWT Championship at Mayakoba 👉🏻 https://wwtatmayakoba.com/login/?lang=en`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             en_3_(guests, index, text, chatId);
@@ -351,7 +351,7 @@ async function en_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'en-1-';
 
     if ( start ) {
-        text = `Hello ${ row.NOMBRE_CARTA }! 👋🏻 I am *WWT Championship at Mayakoba* Concierge 🤖 and I will be assisting you throughout the event. 📅\n\nIn our Main Menu you can look up the following information:\n\n1️⃣ Agenda\n2️⃣ Frequently Asked Questions\n3️⃣ Personalized attention`;
+        text = `Hello ${ row.NOMBRE_CARTA }! 👋🏻 I am *WWT Championship at Mayakoba* Concierge 🤖 and I will be assisting you throughout the event. 📅\n\nIn our *Main Menu* you can look up the following information:\n\n1️⃣ Agenda\n2️⃣ Frequently Asked Questions\n3️⃣ Personalized attention`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
