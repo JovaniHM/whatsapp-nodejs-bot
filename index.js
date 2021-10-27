@@ -114,31 +114,31 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
 
         case 'es-23-1':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número ${ chatName }`;
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
             // await apiChatApi('message', {phone: '5215578684880', body: text});
             await apiChatApi('message', {phone: '5217717485125', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
             break;
         case 'es-23-2':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
             // await apiChatApi('message', {phone: '5219983216190', body: text});
             await apiChatApi('message', {phone: '5217717485125', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
             break;
         case 'es-23-3':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
             // await apiChatApi('message', {phone: '5215559693785)', body: text});
             await apiChatApi('message', {phone: '5217717485125)', body: text});
 
-            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera.`;
+            text = `En seguida nos pondremos en contacto con usted. Gracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_1_(guests, index, text, chatId, row, false);
@@ -146,37 +146,37 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
 
         case 'es-22-1':
-            text = `1. ¿Dónde me hospedaré?\n\nPrevio a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada.`;
+            text = `*¿Dónde me hospedaré?*\n\n🔸 Previo a su llegada a Mayakoba, le informaremos el hotel en el que se hospedará. Cuando llegue al lobby, le indicarán la habitación asignada.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_3_(guests, index, text, chatId);
             break;
         case 'es-22-2':
-            text = `2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n\nSi en la plataforma de registro usted lo solicitó e ingresó la información de sus vuelos, la transportación lo estará esperando a su llegada y para su regreso.`;
+            text = `*¿Tendré transportación para Mayakoba desde el Aeropuerto?*\n\n🔸 Si en la plataforma de registro usted lo solicitó e ingresó la información de sus vuelos, la transportación lo estará esperando a su llegada y para su regreso.`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_3_(guests, index, text, chatId);
             break;
         case 'es-22-3':
-            text = `3. Tuve cambios en mis vuelos, ¿a quién notifico?\n\nTe pedimos por favor ingresar en la plataforma de registro y editar tu información: WWT Championship at Mayakoba ( https://wwtatmayakoba.com/login/?lang=es )`;
+            text = `*Tuve cambios en mis vuelos, ¿a quién notifico?*\n\n🔸 Te pedimos por favor ingresar en la plataforma de registro y editar tu información: *WWT Championship at Mayakoba* 👉🏻 https://wwtatmayakoba.com/login/?lang=es`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_3_(guests, index, text, chatId);
             break;
         case 'es-22-4':
-            text = `4. ¿Este año se solicitará alguna prueba COVID-19?\n\nNo`;
+            text = `*¿Este año se solicitará alguna prueba COVID-19?*\n\n🔸 No`;
             await apiChatApi('message', {chatId: chatId, body: text});
 
             es_3_(guests, index, text, chatId);
             break;
         case 'es-22-5':
             if (row.PLAY_PRO_AM == 1) {
-                text = `5. ¿A qué hora jugaré el Pro-Am y con quién?\n\nLa tarde del martes 2 de noviembre se le compartirán los pairings y horarios de salida.`;
+                text = `*¿A qué hora jugaré el Pro-Am y con quién?*\n\n🔸 La tarde del martes 2 de noviembre se le compartirán los pairings y horarios de salida.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
 
                 es_3_(guests, index, text, chatId);
             } else {
-                text = `Lo sentimos, la opción que ha ingresado no es válida, por favor intente nuevamente.`;
+                text = `Lo sentimos, la opción que ha ingresado no es válida. 🤔\n\nPor favor, intente nuevamente.`;
                 await apiChatApi('message', {chatId: chatId, body: text});
             }
             break;
@@ -200,7 +200,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'es-1-3':
             guests[ index ].clave = 'es-23-';
-            text = `1. Hospedaje\n2. Transportación\n3. Otros`;
+            text = `1️⃣ Hospedaje\n2️⃣ Transportación\n3️⃣ Otros`;
             await apiChatApi('message', {chatId: chatId, body: text});
             break;
 
@@ -210,7 +210,7 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             es_1_(guests, index, text, chatId, row)
             break;
         default:
-            text = `Lo sentimos, la opción que ha ingresado no es válida, por favor intente nuevamente.`;
+            text = `Lo sentimos, la opción que ha ingresado no es válida. 🤔\n\nPor favor, intente nuevamente.`;
             await apiChatApi('message', {chatId: chatId, body: text});
             break;
     }
@@ -335,11 +335,11 @@ async function es_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'es-1-';
 
     if ( start ) {
-        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de *WWT Championship at Mayakoba* y lo estaré acompañando durante todo el evento. 📅\n\nEn nuestro *MENÚ* podrá consultar lo siguiente:\n\n1️⃣. Agenda\n2️⃣. Preguntas frecuentes\n3️⃣. Atención personalizada`;
+        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de *WWT Championship at Mayakoba* y lo estaré acompañando durante todo el evento. 📅\n\nEn nuestro *MENÚ* podrá consultar lo siguiente:\n\n1️⃣ Agenda\n2️⃣ Preguntas frecuentes\n3️⃣ Atención personalizada`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
-            text = `Bienvenido al *MENÚ* del *WWT Championship at Mayakoba* donde podrá consultar lo siguiente:\n\n1. Agenda\n2. Preguntas frecuentes\n3. Atención personalizada`;
+            text = `Bienvenido al *MENÚ* del *WWT Championship at Mayakoba* donde podrá consultar lo siguiente:\n\n1️⃣ Agenda\n2️⃣ Preguntas frecuentes\n3️⃣ Atención personalizada`;
             await apiChatApi('message', {chatId: chatId, body: text});
         }, 2000);
     }
@@ -363,7 +363,7 @@ async function es_3_(guests, index, text, chatId) {
     guests[ index ].clave = 'es-3-';
 
     setTimeout(async() => {
-        text = `¿Tiene usted alguna otra pregunta?\n\n1. Si\n2. No`;
+        text = `¿Tiene usted alguna otra pregunta?\n\n1️⃣ Si\n2️⃣ No`;
         await apiChatApi('message', {chatId: chatId, body: text});
     }, 2000);
 }
@@ -380,7 +380,7 @@ async function en_3_(guests, index, text, chatId) {
 async function es_22_(guests, index, text, chatId, row) {
     guests[ index ].clave = 'es-22-';
 
-    text = `Preguntas frecuentes\n\n1. ¿Dónde me hospedaré?\n2. ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3. Tuve cambios en mis vuelos, ¿a quién notifico?\n4. ¿Este año se solicitará alguna prueba COVID-19?${ row.PLAY_PRO_AM == 1 ? `\n5. ¿A qué hora jugaré el Pro-Am y con quién?` : ''}`;
+    text = `*Preguntas frecuentes*\n\n1️⃣ ¿Dónde me hospedaré?\n2️⃣ ¿Tendré transportación para Mayakoba desde el Aeropuerto?\n3️⃣ Tuve cambios en mis vuelos, ¿a quién notifico?\n4️⃣ ¿Este año se solicitará alguna prueba COVID-19?${ row.PLAY_PRO_AM == 1 ? `\n5️⃣ ¿A qué hora jugaré el Pro-Am y con quién?` : ''}`;
     await apiChatApi('message', {chatId: chatId, body: text});
 }
 
