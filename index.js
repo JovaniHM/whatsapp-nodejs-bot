@@ -117,8 +117,8 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
         case 'es-23-1':
             text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
-            // await apiChatApi('message', {phone: '5215578684880', body: text});
-            await apiChatApi('message', {phone: '5217717485125', body: text});
+            await apiChatApi('message', {phone: '5215578684880', body: text});
+            // await apiChatApi('message', {phone: '5217717485125', body: text});
 
             text = `En seguida nos pondremos en contacto con usted. 🏃🏼‍♀️\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
@@ -127,8 +127,8 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'es-23-2':
             text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
-            // await apiChatApi('message', {phone: '5219983216190', body: text});
-            await apiChatApi('message', {phone: '5217717485125', body: text});
+            await apiChatApi('message', {phone: '5219983216190', body: text});
+            // await apiChatApi('message', {phone: '5217717485125', body: text});
 
             text = `En seguida nos pondremos en contacto con usted. 🏃🏻\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
@@ -137,8 +137,8 @@ async function es_bot(caseValue, guests, index, text, chatId, row, author, chatN
             break;
         case 'es-23-3':
             text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número 👉🏻 ${ chatName }`;
-            // await apiChatApi('message', {phone: '5215559693785)', body: text});
-            await apiChatApi('message', {phone: '5217717485125)', body: text});
+            await apiChatApi('message', {phone: '5215559693785)', body: text});
+            // await apiChatApi('message', {phone: '5217717485125)', body: text});
 
             text = `En seguida nos pondremos en contacto con usted. 🏃🏻\n\nGracias por su espera. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
@@ -229,9 +229,9 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
 
 
         case 'en-23-1':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número ${ chatName }`;
-            // await apiChatApi('message', {phone: '5215578684880', body: text});
-            await apiChatApi('message', {phone: '5217717485125', body: text});
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Hospedaje, favor de contactarlo(a) al número ${ chatName }`;
+            await apiChatApi('message', {phone: '5215578684880', body: text});
+            // await apiChatApi('message', {phone: '5217717485125', body: text});
 
             text = `We will contact you as soon as possible. 🏃🏼‍♀️\n\nThank you for your time. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
@@ -239,9 +239,9 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             en_1_(guests, index, text, chatId, row, false);
             break;
         case 'en-23-2':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
-            // await apiChatApi('message', {phone: '5219983216190', body: text});
-            await apiChatApi('message', {phone: '5217717485125', body: text});
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Transportación, favor de contactarlo(a) al número ${ chatName }`;
+            await apiChatApi('message', {phone: '5219983216190', body: text});
+            // await apiChatApi('message', {phone: '5217717485125', body: text});
 
             text = `We will contact you as soon as possible. 🏃🏻\n\nThank you for your time. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
@@ -249,9 +249,9 @@ async function en_bot(caseValue, guests, index, text, chatId, row, author, chatN
             en_1_(guests, index, text, chatId, row, false);
             break;
         case 'en-23-3':
-            text = `${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
-            // await apiChatApi('message', {phone: '5215559693785)', body: text});
-            await apiChatApi('message', {phone: '5217717485125)', body: text});
+            text = `❗ ${ row.NOMBRE_INVITADO } necesita atención personalizada con Otros, favor de contactarlo(a) al número ${ chatName }`;
+            await apiChatApi('message', {phone: '5215559693785)', body: text});
+            // await apiChatApi('message', {phone: '5217717485125)', body: text});
 
             text = `We will contact you as soon as possible. 🏃🏻\n\nThank you for your time. 😊`;
             await apiChatApi('message', {chatId: chatId, body: text});
