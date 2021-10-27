@@ -337,7 +337,7 @@ async function es_1_(guests, index, text, chatId, row, start = true) {
     guests[ index ].clave = 'es-1-';
 
     if ( start ) {
-        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de *WWT Championship at Mayakoba* 🤖 y lo estaré acompañando durante todo el evento. 📅\n\nEn nuestro *MENÚ* podrá consultar lo siguiente:\n\n1️⃣ Agenda\n2️⃣ Preguntas frecuentes\n3️⃣ Atención personalizada`;
+        text = `Hola ${ row.NOMBRE_CARTA }, 👋🏻 soy el Concierge de *WWT Championship at Mayakoba* 🤖 y ${ row.SEXO == 0 ? 'lo' : 'la' } estaré acompañando durante todo el evento. 📅\n\nEn nuestro *MENÚ* podrá consultar lo siguiente:\n\n1️⃣ Agenda\n2️⃣ Preguntas frecuentes\n3️⃣ Atención personalizada`;
         await apiChatApi('message', {chatId: chatId, body: text});
     } else {
         setTimeout(async() => {
